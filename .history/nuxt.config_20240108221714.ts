@@ -1,8 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@nuxt/ui", "@nuxtjs/tailwindcss"],
+  modules: ['@nuxt/ui','@nuxtjs/tailwindcss'],
   devtools: { enabled: true },
   ui: {
     global: true,
-  },
-});
+    icons: ['simple-icons']
+  }
+})
