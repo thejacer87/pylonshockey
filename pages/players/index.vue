@@ -1,10 +1,15 @@
 <script setup lang="ts">
-  const test = "mello";
+  const { data: players } = await useAsyncData("players", () =>
+    queryContent(`/players`).find()
+  );
 </script>
 
 <template>
   <div>
-    <nuxt-link to="/">HOME</nuxt-link>
-    {{ test }}
+    <li v-for="player in players" :key="player.slug">
+      <NuxtLink :to="`/players/${player.slug}`"
+        >{{ player.first_name }} {{ player.last_name }}</NuxtLink
+      >
+    </li>
   </div>
 </template>
